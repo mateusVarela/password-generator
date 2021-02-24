@@ -1,28 +1,53 @@
-body{
-   height: 100vh;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: #EEF2F7;
-   overflow-y: hidden;
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eef2f7;
+  overflow-y: hidden;
 }
 
 .pricipal {
-    height: 50%;
-    width: 50%;
-    background-color: rgb(230, 230, 230);
-    box-shadow: 0 8px 6px -6px black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 50%;
+  width: 50%;
+  background-color: rgb(230, 230, 230);
+  box-shadow: 0 8px 6px -6px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .inputs {
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30px 30px 30px 40px;
+  justify-content: center;
+  align-items: center;
 }
 
 .checkbox {
-    margin: 5px;
+  justify-self: center;
+  margin: 5px;
+  background-color: #fff;
+}
+
+label {
+  justify-self: center;
+}
+
+.input-range {
+  justify-self: center;
+}
+
+.label-range {
+  animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -1,45 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <title>Gera senhas</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="pricipal">
-        <form action="" method="post">
-            <div class="inputs">
-                <div class="checkbox">
-                    <label for="check">Permitir letras maiúsculas</label>
-                    <input name="check" type="checkbox">
-                </div>
+      <form action="" method="post">
+        <div class="inputs">
+          <div class="checkbox">
+            <label for="check">Permitir letras maiúsculas</label>
+            <input name="check" type="checkbox" />
+          </div>
 
-                <div class="checkbox">
-                    <label for="check">Permitir números</label>
-                    <input name="check" type="checkbox">
-                </div>
+          <div class="checkbox">
+            <label for="check">Permitir números</label>
+            <input name="check" type="checkbox" />
+          </div>
 
-                <div class="checkbox">
-                    <label for="check">Permitir Símbolos</label>
-                    <input name="check" type="checkbox">
-                </div>
+          <div class="checkbox">
+            <label for="check">Permitir Símbolos</label>
+            <input name="check" type="checkbox" />
+          </div>
 
-            <label for="cars">Quantidade de caracteres</label>:</label>
-                <select name="cars" id="">
-                    <option value="volvo">4</option>
-                    <option value="saab">12</option>
-                    <option value="mercedes">24</option>
-                    <option value="audi">36</option>
-                </select>
-
-                <div class="input-text">
-                    <input name="text" type="text">
-                </div>
-
-            </div>
-        </form>
+          <label class="label">Quantidade de caracteres:</label>
+          <div class="input-range">
+            <input
+              type="range"
+              min="4"
+              max="32"
+              onchange="updateTextInput(this.value)"
+              value="4"
+              id="range"
+            />
+            <label id="label" class="label-range">4</label>
+          </div>
+        </div>
+      </form>
     </div>
-</body>
+  </body>
 </html>
+
+<script>
+  function updateTextInput(val) {
+    const a = (document.getElementById('label').value = val)
+  }
+
+  $('input[type=range]').on('input', function () {
+    $(this).trigger('change')
+    $('#label').html($(this).val())
+  })
+</script>
