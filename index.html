@@ -14,17 +14,35 @@
         <div class="inputs">
           <div class="checkbox">
             <label for="check">Permitir letras maiúsculas</label>
-            <input name="check" type="checkbox" />
+            <input
+              name="check0"
+              onchange="updateCheckInput(this.value)"
+              type="checkbox"
+              name="checkBox"
+              value="0"
+            />
           </div>
 
           <div class="checkbox">
             <label for="check">Permitir números</label>
-            <input name="check" type="checkbox" />
+            <input
+              name="check1"
+              onchange="updateCheckInput(this.value)"
+              type="checkbox"
+              name="checkBox"
+              value="1"
+            />
           </div>
 
-          <div class="checkbox">
+          <div id="input-check-2" class="checkbox">
             <label for="check">Permitir Símbolos</label>
-            <input name="check" type="checkbox" />
+            <input
+              name="check2"
+              onchange="console.log(updateCheckInput())"
+              type="checkbox"
+              name="checkBox"
+              value="2"
+            />
           </div>
 
           <label class="label">Quantidade de caracteres:</label>
@@ -33,25 +51,18 @@
               type="range"
               min="4"
               max="32"
-              onchange="updateTextInput(this.value)"
+              onchange="updateRangeInput(this.value)"
               value="4"
               id="range"
             />
             <label id="label" class="label-range">4</label>
+            <label id="check"></label>
           </div>
         </div>
+        <input type="button" value="gerar senha" />
       </form>
     </div>
   </body>
 </html>
 
-<script>
-  function updateTextInput(val) {
-    const a = (document.getElementById('label').value = val)
-  }
-
-  $('input[type=range]').on('input', function () {
-    $(this).trigger('change')
-    $('#label').html($(this).val())
-  })
-</script>
+<script src="index.js"></script>
