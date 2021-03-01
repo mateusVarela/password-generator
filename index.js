@@ -11,14 +11,18 @@ function updateRangeInput(val) {
   console.log()
 }
 
-function updateCheckInput() {
-  const a = document.querySelectorAll(':checked')
-  console.log(a)
-  for (var i = 0; i < a.lenght; i++) {
-    if (a[i] == true) {
-      console.log('acept')
-    } else {
-      console.log('aqui')
-    }
+/**
+ * Pega os valores dos input's checkbox.
+ */
+const checkBox0 = document.getElementById('checkBox0')
+const checkBox1 = document.getElementById('checkBox1')
+const checkBox2 = document.getElementById('checkBox2')
+
+document.getElementById('btn-enviar').onclick = function () {
+  if (checkBox0.checked && checkBox1.checked && checkBox2.checked) {
+    console.log('aqui')
+  } else {
+    console.log(Math.floor(Math.random() * 10000))
   }
 }
+console.log(checkBox0.checked, 'aqui')

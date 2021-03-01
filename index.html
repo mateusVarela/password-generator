@@ -6,43 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <title>Gera senhas</title>
+    <title>Gerador de senhas</title>
   </head>
   <body>
     <div class="pricipal">
-      <form action="" method="post">
+      <form method="post">
         <div class="inputs">
           <div class="checkbox">
-            <label for="check">Permitir letras maiúsculas</label>
-            <input
-              name="check0"
-              onchange="updateCheckInput(this.value)"
-              type="checkbox"
-              name="checkBox"
-              value="0"
-            />
+            <label>Permitir letras maiúsculas</label>
+            <input id="checkBox0" type="checkbox" value="on" />
           </div>
 
           <div class="checkbox">
-            <label for="check">Permitir números</label>
-            <input
-              name="check1"
-              onchange="updateCheckInput(this.value)"
-              type="checkbox"
-              name="checkBox"
-              value="1"
-            />
+            <label>Permitir números</label>
+            <input id="checkBox1" type="checkbox" value="on" />
           </div>
 
-          <div id="input-check-2" class="checkbox">
-            <label for="check">Permitir Símbolos</label>
-            <input
-              name="check2"
-              onchange="console.log(updateCheckInput())"
-              type="checkbox"
-              name="checkBox"
-              value="2"
-            />
+          <div class="checkbox">
+            <label>Permitir Símbolos</label>
+            <input id="checkBox2" type="checkbox" value="on" />
           </div>
 
           <label class="label">Quantidade de caracteres:</label>
@@ -55,11 +37,11 @@
               value="4"
               id="range"
             />
+
             <label id="label" class="label-range">4</label>
-            <label id="check"></label>
           </div>
         </div>
-        <input type="button" value="gerar senha" />
+        <input id="btn-enviar" type="button" value="gerar senha" />
       </form>
     </div>
   </body>
