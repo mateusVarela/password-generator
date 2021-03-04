@@ -23,12 +23,25 @@ document.getElementById('btn-enviar').onclick = function () {
   if (checkBox0.checked && !checkBox1.checked && !checkBox2.checked) {
     console.log('aqui1')
   } else if(!checkBox0.checked && checkBox1.checked && !checkBox2.checked) {
-     console.log(Math.random().toString(36).substr(-inputRange.value))
+     const randomPass = (Math.random().toString(36).substr(-inputRange.value))
+     document.getElementById('passworsValue').innerHTML= randomPass
   }else if (!checkBox0.checked && !checkBox1.checked && checkBox2.checked){
     console.log('aqui3');
   }else if (checkBox0.checked && checkBox1.checked && checkBox2.checked) {
     console.log('aqui4');
   }
-  console.log(inputRange.value);
+  console.log($('#passworsValue').text());
+}
+
+function copyValue(){
+   /* Get the text field */
+   const a = $('#passworsValue').text()
+   var copyText = a;
+
+   /* Copy the text inside the text field */
+   document.execCommand("copy");
+ 
+   /* Alert the copied text */
+   alert("Senha copiada: " + copyText)
 }
 

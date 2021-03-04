@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="pricipal">
-      <form method="post">
+      <form name="form" method="post">
         <div class="inputs">
           <div class="checkbox">
             <label>Permitir letras maiúsculas</label>
@@ -41,8 +41,13 @@
             <label id="label" class="label-range">4</label>
           </div>
         </div>
-        <input id="btn-enviar" type="button" value="gerar senha" />
-      </form>
+        <div class="btn">
+          <input id="btn-enviar" type="button" value="Gerar senha"/>
+        </div>
+        <div class="password">
+          <div name="a" id="passworsValue"></div><button onclick="copyValue()">Copie a senha.</button>
+        </div>
+        </form>
     </div>
   </body>
 </html>
