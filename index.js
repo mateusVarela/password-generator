@@ -8,9 +8,11 @@ $('input[type=range]').on('input', function () {
 
 function updateRangeInput(val) {
   document.getElementById('label').length = val
-  console.log()
 }
 
+const letters = 'abcdefghijklmnopqrstuvwxyz'
+
+const simbol = '*/-+.,%&#@!$'
 /**
  * Pega os valores dos input's checkbox.
  */
@@ -19,29 +21,45 @@ const checkBox0 = document.getElementById('checkBox0')
 const checkBox1 = document.getElementById('checkBox1')
 const checkBox2 = document.getElementById('checkBox2')
 
-document.getElementById('btn-enviar').onclick = function () {
+document.getElementById('btn-submit').onclick = function () {
   if (checkBox0.checked && !checkBox1.checked && !checkBox2.checked) {
-    console.log('aqui1')
+    /**
+     * Para letras maiusculas.
+     */
+    let randomPass = '';
+    for (let i = 0; i < inputRange.value; i++) {
+      randomPass += letters.charAt(Math.floor(Math.random() * letters.length));
+    }
+    return document.getElementById('passworsValue').value = randomPass.toUpperCase();
   } else if(!checkBox0.checked && checkBox1.checked && !checkBox2.checked) {
-     const randomPass = (Math.random().toString(36).substr(-inputRange.value))
-     document.getElementById('passworsValue').innerHTML= randomPass
+    /**
+     * Para números.
+     */
+     const randomPass = (Math.random().toString(16).substr(2, inputRange.value))
+     document.getElementById('passworsValue').value = randomPass
   }else if (!checkBox0.checked && !checkBox1.checked && checkBox2.checked){
-    console.log('aqui3');
+    /**
+     * Para simbolos.
+     */
+    let randomPass = '';
+    for (let i = 0; i < inputRange.value; i++) {
+      randomPass += simbol.charAt(Math.floor(Math.random() * simbol.length));
+    }
+    return document.getElementById('passworsValue').value = randomPass.toUpperCase();
   }else if (checkBox0.checked && checkBox1.checked && checkBox2.checked) {
     console.log('aqui4');
   }
-  console.log($('#passworsValue').text());
 }
 
 function copyValue(){
-   /* Get the text field */
-   const a = $('#passworsValue').text()
-   var copyText = a;
+  const copyText = document.getElementById("passworsValue");
 
-   /* Copy the text inside the text field */
-   document.execCommand("copy");
- 
-   /* Alert the copied text */
-   alert("Senha copiada: " + copyText)
+  /* Select the text field */
+  copyText.select();
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  alert('Sua senha foi copiada: ' + copyText.value)
 }
 
