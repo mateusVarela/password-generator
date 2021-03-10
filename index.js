@@ -23,6 +23,18 @@ const hasNumber = document.getElementById('hasNumber')
 const hasSpecialCharacter = document.getElementById('hasSpecialCharacter')
 
 document.getElementById('btn-submit').onclick = function () {
+  if (!hasCapital.checked && !hasNumber.checked && !hasSpecialCharacter.checked) {
+    /**
+     * Caso não tenha nenhum filtro.
+     */
+    
+    let randomPass = '';
+    for (let i = 0; i < inputRange.value; i++) {
+      randomPass += letters.charAt(Math.floor(Math.random() * letters.length));
+    }
+    return document.getElementById('passworsValue').value = randomPass;
+  }
+
   if (hasCapital.checked && !hasNumber.checked && !hasSpecialCharacter.checked) {
     /**
      * Para letras maiusculas.
