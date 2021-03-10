@@ -1,17 +1,33 @@
+* {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 body {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #eef2f7;
+  background: rgb(22, 21, 21) !important;
   overflow-y: hidden;
+}
+
+.titulo {
+  display: flex;
+  letter-spacing: 2px;
+  color: #4f4f4f;
+  background: -webkit-linear-gradient( left, #248F8D, #8d3855, #5C4F79);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .pricipal {
   height: 50%;
   width: 50%;
-  background-color: rgb(230, 230, 230);
-  box-shadow: 0 8px 6px -6px black;
+  background-color: rgb(54, 54, 54);
+  box-shadow: 0 8px 6px -6px #248F8D;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,6 +39,7 @@ body {
   grid-template-rows: 30px 30px 30px 40px;
   justify-content: center;
   align-items: center;
+  color: aliceblue;
 }
 
 .checkbox {
@@ -51,8 +68,12 @@ label {
 border: none;
 padding: 5px;
 cursor: pointer;
-background-color: rgb(18, 102, 3);
-color: white;
+background-color: rgb(183, 185, 182);
+}
+
+#btn-submit:hover{
+  background-color: rgb(143, 143, 143);
+  height: 36px;
 }
 
 #btn-submit:hover {
@@ -63,6 +84,7 @@ color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 330px;
 }
 
 #passworsValue {

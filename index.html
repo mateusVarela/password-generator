@@ -11,22 +11,25 @@
     <title>Gerador de senhas</title>
   </head>
   <body>
+    <div class="titulo">
+      <h1>GERADOR DE SENHAS</h1>
+    </div>
     <div class="pricipal">
       <form name="form" method="post">
         <div class="inputs">
           <div class="checkbox">
             <label>Letras maiúsculas</label>
-            <input id="checkBox0" type="checkbox" value="on" />
+            <input id="hasCapital" type="checkbox" value="on" />
           </div>
 
           <div class="checkbox">
             <label>Números</label>
-            <input id="checkBox1" type="checkbox" value="on" />
+            <input id="hasNumber" type="checkbox" value="on" />
           </div>
 
           <div class="checkbox">
             <label>Símbolos</label>
-            <input id="checkBox2" type="checkbox" value="on" />
+            <input id="hasSpecialCharacter" type="checkbox" value="on" />
           </div>
 
           <label class="label">Quantidade de caracteres:</label>
@@ -47,8 +50,8 @@
           <input style="outline: none; border-radius: 15px;" id="btn-submit" type="button" value="Gerar senha"/>
         </div>
         <div class="password">
-          <input id="passworsValue">
-          <i style="font-size: 25px; text-justify: center; margin-top: 40px;" onclick="copyValue()" class="bi bi-files"></i>
+          <input style="width: 100%; text-align: center; border: none; outline: none;" id="passworsValue">
+          <i style="cursor: pointer; color: rgb(168, 167, 167); font-size: 25px; text-justify: center; margin-top: 40px;" onclick="copyValue()" class="bi bi-files"></i>
         </div>
       </form>
     </div>

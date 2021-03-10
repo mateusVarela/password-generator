@@ -11,55 +11,113 @@ function updateRangeInput(val) {
 }
 
 const letters = 'abcdefghijklmnopqrstuvwxyz'
-
+const numbers = '0123456789'
 const simbol = '*/-+.,%&#@!$'
+
 /**
  * Pega os valores dos input's checkbox.
  */
 const inputRange = document.getElementById('range')
-const checkBox0 = document.getElementById('checkBox0')
-const checkBox1 = document.getElementById('checkBox1')
-const checkBox2 = document.getElementById('checkBox2')
+const hasCapital = document.getElementById('hasCapital')
+const hasNumber = document.getElementById('hasNumber')
+const hasSpecialCharacter = document.getElementById('hasSpecialCharacter')
 
 document.getElementById('btn-submit').onclick = function () {
-  if (checkBox0.checked && !checkBox1.checked && !checkBox2.checked) {
+  if (hasCapital.checked && !hasNumber.checked && !hasSpecialCharacter.checked) {
     /**
      * Para letras maiusculas.
      */
+    let pass = letters + letters.toUpperCase()
     let randomPass = '';
     for (let i = 0; i < inputRange.value; i++) {
-      randomPass += letters.charAt(Math.floor(Math.random() * letters.length));
+      randomPass += pass.charAt(Math.floor(Math.random() * pass.length));
     }
-    return document.getElementById('passworsValue').value = randomPass.toUpperCase();
-  } else if(!checkBox0.checked && checkBox1.checked && !checkBox2.checked) {
+    return document.getElementById('passworsValue').value = randomPass;
+  } 
+
+  if(!hasCapital.checked && hasNumber.checked && !hasSpecialCharacter.checked) {
     /**
      * Para números.
      */
-     const randomPass = (Math.random().toString(16).substr(2, inputRange.value))
-     document.getElementById('passworsValue').value = randomPass
-  }else if (!checkBox0.checked && !checkBox1.checked && checkBox2.checked){
+    const pass = numbers + letters
+    let randomPass = '';
+    for (let i = 0; i < inputRange.value; i++) {
+      randomPass += pass.charAt((Math.random() * pass.length));
+    }
+    return document.getElementById('passworsValue').value = randomPass;
+  }
+  
+  if (!hasCapital.checked && !hasNumber.checked && hasSpecialCharacter.checked){
     /**
      * Para simbolos.
      */
+    const pass = simbol + letters
     let randomPass = '';
     for (let i = 0; i < inputRange.value; i++) {
-      randomPass += simbol.charAt(Math.floor(Math.random() * simbol.length));
+      randomPass += pass.charAt((Math.random() * pass.length));
     }
-    return document.getElementById('passworsValue').value = randomPass.toUpperCase();
-  }else if (checkBox0.checked && checkBox1.checked && checkBox2.checked) {
-    console.log('aqui4');
+    return document.getElementById('passworsValue').value = randomPass;
+  } 
+  
+  if (hasCapital.checked && hasNumber.checked && hasSpecialCharacter.checked) {
+    /**
+     * Todos os inputs selecionados.
+     */
+    const pass = simbol + letters + letters.toUpperCase() + numbers;
+    randomPass = ''
+    for (let i = 0; i < inputRange.value; i++) {
+      randomPass += pass.charAt((Math.random() * pass.length));
+    }
+    return document.getElementById('passworsValue').value = randomPass
+  }
+
+  if (hasCapital.checked && hasNumber.checked && !hasSpecialCharacter.checked) {
+    /**
+     * Para letras maiusculas e números. 
+     */
+    const pass = letters + letters.toUpperCase() + numbers;
+    randomPass = ''
+    for (let i = 0; i < inputRange.value; i++) {
+      randomPass += pass.charAt((Math.random() * pass.length));
+    }
+    return document.getElementById('passworsValue').value = randomPass
+  }
+
+  if (!hasCapital.checked && hasNumber.checked && hasSpecialCharacter.checked) {
+    /**
+     * Para números e símbolos. 
+     */
+    const pass = letters + numbers + simbol;
+    randomPass = ''
+    for (let i = 0; i < inputRange.value; i++) {
+      randomPass += pass.charAt((Math.random() * pass.length));
+    }
+    return document.getElementById('passworsValue').value = randomPass
+  }
+
+  if (hasCapital.checked && !hasNumber.checked && hasSpecialCharacter.checked) {
+    /**
+     * Para letras maiusculas e símbolos. 
+     */
+    const pass = letters + letters.toUpperCase() + simbol;
+    randomPass = ''
+    for (let i = 0; i < inputRange.value; i++) {
+      randomPass += pass.charAt((Math.random() * pass.length));
+    }
+    return document.getElementById('passworsValue').value = randomPass
   }
 }
 
 function copyValue(){
   const copyText = document.getElementById("passworsValue");
 
-  /* Select the text field */
+   /**
+   * Seleciona o campo.
+   */
   copyText.select();
 
-  /* Copy the text inside the text field */
+  /**
+   * Copia a senha. 
+   */  
   document.execCommand("copy");
-
-  alert('Sua senha foi copiada: ' + copyText.value)
 }
-
